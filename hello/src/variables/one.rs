@@ -21,3 +21,9 @@ fn main() {
 fn main() {
     let bunnies = 16;
 }
+
+// will work
+fn main() {
+    let mut bunnies = 32;
+    bunnies =2;
+}
