@@ -1,5 +1,8 @@
 fn main() {
-    fizzbuzz(15);
+    // fizzbuzz(15);
+    for x in 1..100{
+        fizzbuzz(x)
+    }
 }
 
 fn fizzbuzz(number: i32) {
