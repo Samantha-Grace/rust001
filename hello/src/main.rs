@@ -1,26 +1,33 @@
-// fn main(keyword: i32) {
-
-//     if keyword % 3 == 0 {
-//         print!("fizz");
-//     } else if keyword % 5 == 0  {
-//         print!("buzz");
-//     } else if keyword % 3 == 0 && keyword % 5 ==0 {
-//         print!("fizzbuzz");
-//     } else {
-//         print!("{}", keyword);
-//     }
-//     }
-
 fn main() {
-    let number = 100;
+    fizzbuzz(15);
+}
+
+fn fizzbuzz(number: i32) {
 
     if number % 3 == 0 {
-        print!("fizz");
+        println!("fizz");
     } else if number % 5 == 0  {
-        print!("buzz");
+        println!("buzz");
     } else if number % 3 == 0 && number % 5 ==0 {
-        print!("fizzbuzz");
+        println!("fizzbuzz");
     } else {
-        print!("{}", number);
+        println!("{}", number);
     }
     }
+
+
+
+
+// fn main() {
+//     let number = 15;
+
+//     if number % 3 == 0 {
+//         println!("fizz");
+//     } else if number % 5 == 0  {
+//         println!("buzz");
+//     } else if number % 3 == 0 && number % 5 == 0 {
+//         println!("fizzbuzz");
+//     } else {
+//         println!("{}", number);
+//     }
+//     }
