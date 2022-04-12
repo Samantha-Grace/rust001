@@ -1,35 +1,23 @@
-// use snake case, lower case words seperated by underscores
-fn main() {
-    do_stuff();
+use serde_json;
+use serde::{Deserialize, Serialize};
+use std::fs;
+
+#[derive(Serialize, Deserialize)]
+struct OrderResponse {
+    orders: Vec<Order>,
+}
+#[derive(Serialize, Deserialize)]
+struct Order {
+    certificate_id: String,
+    order_id: i32,
 }
 
-// functions don't have to appear in the file before code that calls them
-fn do_stuff() {
-    println!("Hello, world!");
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let order_str = fs::read_to_string("data.json")?;
+    let o: OrderResponse = serde_json::from_str(&order_str)?;
+    let filtered_array: Vec<&Order> = o.orders.iter().filter(|x| x.certificate_id == "").collect();
+
+    println!("Orders: {}", o.orders.len());
+    println!("Filt Array: {}", filtered_array.len());
+    Ok(())
 }
-
-// function parameters are always defined with with name, colon, type
-
-fn do_stuff(qty: f64);
-
-// multiple parameters are seperated by a comma
-fn do_stuff(qty: f64, oz: f64);
-
-// specify the return type after the parameters by adding an arrrow
-fn do_stuff(qty: f64, oz: f64) -> f64;
-
-// body is inside block
-fn do_stuff(qty: f64, oz: f64) -> f64 {
-
-}
-
-// you can return a value from a func with return keyword
-fn do_stuff(qty: f64, oz: f64) -> f64 {
-    return qty * oz;
-    //shorthand for return - leave the semicolon off (this is called a tail exprssion)
-    qty * oz
-}
-
-// this is the same as this
-// { return true; }
-// { true }
